@@ -16,7 +16,7 @@ Still under active development.
 Run the commands `go get` followed by `go build` from the cloned directory. 
 
 
-### Coommand Line
+### Command Line
 ```
 Usage of SeeMS.exe:
   -filename string
