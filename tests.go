@@ -1,0 +1,148 @@
+package main
+
+// NOTE: Id is set as to ensure Test[num] will produce the same result as Test.Id == num
+
+func GenerateTests() []Test {
+	return []Test{
+		{
+			Id:     0,
+			Cms:    "wordpress",
+			Url:    "/wp-admin/js/farbtastic.js",
+			Action: "substring",
+			Match:  "Farbtastic: jQuery color picker plug-in v1.3u",
+		},
+		{
+			Id:     1,
+			Cms:    "wordpress",
+			Url:    "/?feed=rss2",
+			Action: "regex",
+			Match:  "v=(.*)</generator>",
+		},
+		{
+			Id:     2,
+			Cms:    "wordpress",
+			Url:    "/wp-admin/upgrade.php",
+			Action: "regex",
+			Match:  "ver=(.*)' type",
+		},
+		{
+			Id:     3,
+			Cms:    "joomla",
+			Url:    "/administrator/manifests/files/joomla.xml",
+			Action: "regex",
+			Match:  "<version>(.*)</version>",
+		},
+		{
+			Id:     4,
+			Cms:    "drupal",
+			Url:    "/misc/drupal.js",
+			Action: "substring",
+			Match:  "var Drupal",
+		},
+		{
+			Id:     5,
+			Cms:    "drupal",
+			Url:    "/core/misc/drupal.js",
+			Action: "substring",
+			Match:  "var Drupal",
+		},
+		{
+			Id:     6,
+			Cms:    "drupal",
+			Url:    "/",
+			Action: "substring",
+			Match:  "Drupal 7 (https://www.drupal.org)",
+		},
+		{
+			Id:     7,
+			Cms:    "drupal",
+			Url:    "/",
+			Action: "substring",
+			Match:  "Drupal 8 (https://www.drupal.org)",
+		},
+		{
+			Id:     8,
+			Cms:    "drupal",
+			Url:    "/misc/drupal.js",
+			Action: "hash",
+			Match:  "",
+		},
+		{
+			Id:     9,
+			Cms:    "drupal",
+			Url:    "/misc/tabledrag.js",
+			Action: "hash",
+			Match:  "",
+		},
+		{
+			Id:     10,
+			Cms:    "drupal",
+			Url:    "/misc/tableheader.js",
+			Action: "hash",
+			Match:  "",
+		},
+		{
+			Id:     11,
+			Cms:    "drupal",
+			Url:    "/misc/ajax.js",
+			Action: "hash",
+			Match:  "",
+		},
+		{
+			Id:     12,
+			Cms:    "drupal",
+			Url:    "/core/misc/drupal.js",
+			Action: "hash",
+			Match:  "",
+		},
+		{
+			Id:     13,
+			Cms:    "drupal",
+			Url:    "/core/misc/tabledrag.js",
+			Action: "hash",
+			Match:  "",
+		},
+		{
+			Id:     14,
+			Cms:    "drupal",
+			Url:    "/core/misc/tableheader.js",
+			Action: "hash",
+			Match:  "",
+		},
+		{
+			Id:     15,
+			Cms:    "drupal",
+			Url:    "/core/misc/ajax.js",
+			Action: "hash",
+			Match:  "",
+		},
+		{
+			Id:     16,
+			Cms:    "drupal",
+			Url:    "/CHANGELOG.txt",
+			Action: "hash",
+			Match:  "",
+		},
+		{
+			Id:     17,
+			Cms:    "drupal",
+			Url:    "/core/CHANGELOG.txt",
+			Action: "hash",
+			Match:  "",
+		},
+		{
+			Id:     18,
+			Cms:    "sharepoint",
+			Url:    "/",
+			Action: "header",
+			Match:  "microsoftsharepointteamservices",
+		},
+		{
+			Id:     19,
+			Cms:    "moodle",
+			Url:    "/INSTALL.txt",
+			Action: "substring",
+			Match:  "MOODLE INSTALLATION",
+		},
+	}
+}

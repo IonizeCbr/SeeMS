@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="63af61f6-f239-4273-b845-4f491c8178e3" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="C:\Go" />
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="ebDuRodw" />
+  </component>
+  <component name="ProjectId" id="1X6KB3q4a9F3istLGzf13yXbAFa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager" selected="Go Build.go build main.go (PMC File Read)">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="SeeMS" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$" />
+      <package value="SeeMSv2" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build main.go (Drupal)" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="SeeMS" />
+      <working_directory value="$PROJECT_DIR$" />
+      <parameters value="--target https://drupal.org" />
+      <kind value="DIRECTORY" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="SeeMSv2" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build main.go (File Read)" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="SeeMS" />
+      <working_directory value="$PROJECT_DIR$" />
+      <parameters value="--filename hosts.txt" />
+      <kind value="DIRECTORY" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="SeeMSv2" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build main.go (Joomla)" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="SeeMS" />
+      <working_directory value="$PROJECT_DIR$" />
+      <parameters value="--target https://joomla.org" />
+      <kind value="DIRECTORY" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="SeeMSv2" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build main.go (Non-CMS)" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="SeeMS" />
+      <working_directory value="$PROJECT_DIR$" />
+      <parameters value="--target https://google.com" />
+      <kind value="DIRECTORY" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="SeeMSv2" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build main.go (PMC File Read)" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="SeeMS" />
+      <working_directory value="$PROJECT_DIR$" />
+      <parameters value="--filename hosts.txt --threads 5" />
+      <kind value="DIRECTORY" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="SeeMSv2" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build main.go (Wordpress)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+      <module name="SeeMS" />
+      <working_directory value="$PROJECT_DIR$" />
+      <parameters value="--target https://netsec.ws" />
+      <kind value="DIRECTORY" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="SeeMSv2" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="SeeMS" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
+      <package value="SeeMSv2" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.go build main.go (Joomla)" />
+      <item itemvalue="Go Build.go build main.go (Drupal)" />
+      <item itemvalue="Go Build.go build main.go (Non-CMS)" />
+      <item itemvalue="Go Build.go build main.go (File Read)" />
+      <item itemvalue="Go Build.go build main.go (PMC File Read)" />
+      <item itemvalue="Go Build.go build main.go (Wordpress)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build main.go (Wordpress)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="63af61f6-f239-4273-b845-4f491c8178e3" name="Default Changelist" comment="" />
+      <created>1580360964756</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580360964756</updated>
+      <workItem from="1580360966088" duration="22902000" />
+      <workItem from="1580425568311" duration="4151000" />
+      <workItem from="1580441908610" duration="747000" />
+      <workItem from="1580691100294" duration="1098000" />
+      <workItem from="1580959524653" duration="2745000" />
+      <workItem from="1581300653423" duration="44250000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+    <proxy>direct</proxy>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1174" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581399462687">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="1174" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1581399462687" />
+    <state x="1400" y="430" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1581300667739">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="1400" y="430" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1581300667739" />
+    <state width="533" height="466" key="DebuggerActiveHint" timestamp="1581393026034">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="533" height="466" key="DebuggerActiveHint/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1581393026034" />
+    <state x="1301" y="480" key="EditFileWatcherDialog" timestamp="1580362270981">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="1301" y="480" key="EditFileWatcherDialog/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1580362270981" />
+    <state width="3399" height="446" key="GridCell.Tab.0.bottom" timestamp="1581474610207">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3399" height="446" key="GridCell.Tab.0.bottom/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1581474610207" />
+    <state width="3399" height="446" key="GridCell.Tab.0.center" timestamp="1581474610207">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3399" height="446" key="GridCell.Tab.0.center/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1581474610207" />
+    <state width="3399" height="446" key="GridCell.Tab.0.left" timestamp="1581474610207">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3399" height="446" key="GridCell.Tab.0.left/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1581474610207" />
+    <state width="3399" height="446" key="GridCell.Tab.0.right" timestamp="1581474610207">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3399" height="446" key="GridCell.Tab.0.right/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1581474610207" />
+    <state width="3399" height="446" key="GridCell.Tab.1.bottom" timestamp="1581474610207">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3399" height="446" key="GridCell.Tab.1.bottom/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1581474610207" />
+    <state width="3399" height="446" key="GridCell.Tab.1.center" timestamp="1581474610207">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3399" height="446" key="GridCell.Tab.1.center/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1581474610207" />
+    <state width="3399" height="446" key="GridCell.Tab.1.left" timestamp="1581474610207">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3399" height="446" key="GridCell.Tab.1.left/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1581474610207" />
+    <state width="3399" height="446" key="GridCell.Tab.1.right" timestamp="1581474610207">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3399" height="446" key="GridCell.Tab.1.right/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1581474610207" />
+    <state x="1251" y="344" key="SettingsEditor" timestamp="1580441894956">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="1251" y="344" key="SettingsEditor/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1580441894956" />
+    <state x="1388" y="313" width="664" height="774" key="find.popup" timestamp="1580960549849">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="1388" y="313" width="664" height="774" key="find.popup/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1580960549849" />
+    <state x="1383" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1580365544725">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="1383" y="315" width="672" height="678" key="search.everywhere.popup/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1580365544725" />
+  </component>
+</project>
