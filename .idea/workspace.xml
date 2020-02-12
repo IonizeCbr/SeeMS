@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="63af61f6-f239-4273-b845-4f491c8178e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="63af61f6-f239-4273-b845-4f491c8178e3" name="Default Changelist" comment="Updated README.md typo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,8 +167,23 @@
       <workItem from="1580959524653" duration="2745000" />
       <workItem from="1581300653423" duration="44250000" />
       <workItem from="1581474647106" duration="831000" />
-      <workItem from="1581475823228" duration="839000" />
+      <workItem from="1581475823228" duration="1174000" />
     </task>
+    <task id="LOCAL-00001" summary="Updated README.md">
+      <created>1581478268333</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1581478268333</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Updated README.md typo">
+      <created>1581478422902</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1581478422902</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,6 +200,11 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updated README.md" />
+    <MESSAGE value="Updated README.md typo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated README.md typo" />
+  </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
     <proxy>direct</proxy>
@@ -198,10 +218,10 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1400" y="430" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1581300667739" />
-    <state x="2143" y="299" key="CommitChangelistDialog2" timestamp="1581478267824">
+    <state x="2143" y="299" key="CommitChangelistDialog2" timestamp="1581478514628">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="2143" y="299" key="CommitChangelistDialog2/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1581478267824" />
+    <state x="2143" y="299" key="CommitChangelistDialog2/0.0.3440.1400/3440.-2000.1440.3400@0.0.3440.1400" timestamp="1581478514628" />
     <state width="533" height="466" key="DebuggerActiveHint" timestamp="1581393026034">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>

@@ -28,3 +28,14 @@ Usage of SeeMS.exe:
   -threads int
         Number of threads to use. (default 10)
 ```
+
+### Example Output
+```
+.\SeeMS.exe -filename .\hosts.txt
+Sharepoint (16.0.0.19722) @ https://ionize.sharepoint.com/
+Moodle (Unknown) @ https://moodle.telt.unsw.edu.au/
+No recognised CMS @ https://google.com
+Joomla (3.9.15) @ https://joomla.org
+Drupal (7.61 - 7.67) @ https://drupal.org
+Wordpress (5.3.2) @ https://ionize.com.au
+```
