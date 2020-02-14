@@ -13,7 +13,7 @@ Still under active development.
 
 
 ### Installation
-Run the commands `go get` followed by `go build` from the cloned directory. 
+Run the command `go build` from the cloned directory. 
 
 
 ### Command Line
