@@ -3,11 +3,11 @@
 This tool is designed to be a high level scanner for identifying the CMS type and version at any given URL. 
 
 Currently Supports
-- Drupal (w/ Versions)
-- Wordpress (w/ Versions)
-- Sharepoint (w/ Versions)
-- Joomla (w/ Versions)
-- Moodle (No Version Information)
+- Drupal
+- Wordpress
+- Sharepoint
+- Joomla
+- Moodle
 
 Still under active development.
 
