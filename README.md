@@ -30,13 +30,13 @@ Usage of SeeMS.exe:
 ### Target / File Format
 SeeMS expects targets to be in a format of one per line with protocol specified. 
 
-#####Accepted
+**Accepted**
 ```
 https://foobar.com.au
 http://foobar.com:8080
 ```
 
-#####Not Accepted
+**Not Accepted**
 ```
 foobar.com.au
 ```
