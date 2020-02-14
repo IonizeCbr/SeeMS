@@ -2,6 +2,7 @@ package main
 
 import (
 	"SeeMS/Versions"
+	"SeeMS/Workers"
 	"bufio"
 	"flag"
 	"fmt"
@@ -13,6 +14,19 @@ import (
 
 	"github.com/hashicorp/go-version"
 )
+
+type Settings struct {
+	targetList []string
+	target     string
+	threads    int
+	file       string
+	quiet      bool
+}
+
+type Target struct {
+	Hostname string
+	Tests    []Workers.Test
+}
 
 func main() {
 	s := Settings{}
@@ -68,10 +82,10 @@ func SeeMS(set Settings) {
 
 func testWorker(targetQueue chan Target, targetSync *sync.WaitGroup) {
 	for target := range targetQueue {
-		var webComms = make(chan WebResponse, len(target.Tests))
+		var webComms = make(chan Workers.WebResponse, len(target.Tests))
 
 		for _, test := range target.Tests {
-			go webWorker(fmt.Sprintf("%s%s", target.Hostname, test.Url), webComms, test.Id)
+			go Workers.Web(fmt.Sprintf("%s%s", target.Hostname, test.Url), webComms, test.Id)
 		}
 
 		for i := 0; i < cap(webComms); i++ {
@@ -86,18 +100,18 @@ func testWorker(targetQueue chan Target, targetSync *sync.WaitGroup) {
 }
 
 func scoreMarkup(target Target, targetSync *sync.WaitGroup) {
-	var scoreComms = make(chan Score, len(target.Tests))
+	var scoreComms = make(chan Workers.Score, len(target.Tests))
 
 	for _, test := range target.Tests {
 		switch action := test.Action; action {
 		case "substring":
-			go substringWorker(scoreComms, test)
+			go Workers.Substring(scoreComms, test)
 		case "regex":
-			go regexWorker(scoreComms, test)
+			go Workers.Regex(scoreComms, test)
 		case "hash":
-			go hashWorker(scoreComms, test)
+			go Workers.Hash(scoreComms, test)
 		case "header":
-			go headerWorker(scoreComms, test)
+			go Workers.Header(scoreComms, test)
 		}
 	}
 
@@ -156,7 +170,7 @@ func scoreEvaluation(target Target, targetSync *sync.WaitGroup) {
 	}
 }
 
-func getSharepointVersion(sd []Test) string {
+func getSharepointVersion(sd []Workers.Test) string {
 	spVersion := ""
 
 	for _, s := range sd {
@@ -172,7 +186,7 @@ func getSharepointVersion(sd []Test) string {
 	}
 }
 
-func getMoodleVersion(sd []Test) string {
+func getMoodleVersion(sd []Workers.Test) string {
 	verZero, _ := version.NewVersion("0.0")
 	verMin, _ := version.NewVersion("0.0")
 	verMax, _ := version.NewVersion("0.0")
@@ -211,7 +225,7 @@ func getMoodleVersion(sd []Test) string {
 	}
 }
 
-func getWordpressVersion(sd []Test) string {
+func getWordpressVersion(sd []Workers.Test) string {
 	wpFeedVersion := ""
 	wpUpgradeVersion := ""
 
@@ -232,7 +246,7 @@ func getWordpressVersion(sd []Test) string {
 	}
 }
 
-func getJoomlaVersion(sd []Test) string {
+func getJoomlaVersion(sd []Workers.Test) string {
 	joomlaVersion := ""
 
 	for _, s := range sd {
@@ -248,7 +262,7 @@ func getJoomlaVersion(sd []Test) string {
 	}
 }
 
-func getDrupalVersion(sd []Test) string {
+func getDrupalVersion(sd []Workers.Test) string {
 	verZero, _ := version.NewVersion("0.0")
 	verMin, _ := version.NewVersion("0.0")
 	verMax, _ := version.NewVersion("0.0")

@@ -1,4 +1,4 @@
-package main
+package Workers
 
 import (
 	"io/ioutil"
@@ -6,7 +6,14 @@ import (
 	"time"
 )
 
-func webWorker(target string, webComms chan WebResponse, testId int) {
+type WebResponse struct {
+	TestId  int
+	Headers http.Header
+	Body    string
+	Err     error
+}
+
+func Web(target string, webComms chan WebResponse, testId int) {
 	w := WebResponse{
 		testId,
 		nil,

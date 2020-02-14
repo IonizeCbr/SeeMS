@@ -1,4 +1,4 @@
-package main
+package Workers
 
 import (
 	"crypto/md5"
@@ -7,7 +7,24 @@ import (
 	"strings"
 )
 
-func substringWorker(scoreComms chan Score, test Test) {
+type Score struct {
+	TestId int
+	Value  int
+	Regex  string
+	Hash   string
+}
+
+type Test struct {
+	Score    Score
+	Id       int
+	Cms      string
+	Url      string
+	Action   string
+	Match    string
+	Response WebResponse
+}
+
+func Substring(scoreComms chan Score, test Test) {
 	var sd Score
 	sd.Value = 0
 	sd.TestId = test.Id
@@ -21,7 +38,7 @@ func substringWorker(scoreComms chan Score, test Test) {
 	scoreComms <- sd
 }
 
-func regexWorker(scoreComms chan Score, test Test) {
+func Regex(scoreComms chan Score, test Test) {
 	var sd Score
 	sd.Value = 0
 	sd.TestId = test.Id
@@ -40,7 +57,7 @@ func regexWorker(scoreComms chan Score, test Test) {
 	scoreComms <- sd
 }
 
-func hashWorker(scoreComms chan Score, test Test) {
+func Hash(scoreComms chan Score, test Test) {
 	var sd Score
 	sd.Value = 0
 	sd.TestId = test.Id
@@ -53,7 +70,7 @@ func hashWorker(scoreComms chan Score, test Test) {
 	scoreComms <- sd
 }
 
-func headerWorker(scoreComms chan Score, test Test) {
+func Header(scoreComms chan Score, test Test) {
 	var sd Score
 	sd.Value = 0
 	sd.TestId = test.Id

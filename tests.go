@@ -1,9 +1,9 @@
 package main
 
-// NOTE: Id is set as to ensure Test[num] will produce the same result as Test.Id == num
+import "SeeMS/Workers"
 
-func GenerateTests() []Test {
-	return []Test{
+func GenerateTests() []Workers.Test {
+	return []Workers.Test{
 		{
 			Id:     0,
 			Cms:    "wordpress",
