@@ -27,3 +27,16 @@ Usage of SeeMS.exe:
         Number of threads to use. (default 10)
 ```
 
+### Target / File Format
+SeeMS expects targets to be in a format of one per line with protocol specified. 
+
+#####Accepted
+```
+https://foobar.com.au
+http://foobar.com:8080
+```
+
+#####Not Accepted
+```
+foobar.com.au
+```

@@ -34,11 +34,6 @@ type WebResponse struct {
 	Err     error
 }
 
-type Version struct {
-	Md5 string
-	Id  string
-}
-
 type Score struct {
 	TestId int
 	Value  int

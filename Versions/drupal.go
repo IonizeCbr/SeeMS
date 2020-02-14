@@ -1,6 +1,6 @@
-package main
+package Versions
 
-var drupalVersion = map[string][]Version{
+var Drupal = map[string][]Version{
 	"/misc/drupal.js": []Version{
 		Version{Md5: "f151220aded688adf35c623a17a0147a", Id: "4.7.0-beta3"},
 		Version{Md5: "476482ca90e5ba941b43cdfbde04d03c", Id: "4.7.0-beta4"},

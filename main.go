@@ -1,14 +1,17 @@
 package main
 
 import (
+	"SeeMS/Versions"
 	"bufio"
 	"flag"
 	"fmt"
 	"log"
 	"os"
-	"strconv"
+	"sort"
 	"strings"
 	"sync"
+
+	"github.com/hashicorp/go-version"
 )
 
 func main() {
@@ -170,26 +173,39 @@ func getSharepointVersion(sd []Test) string {
 }
 
 func getMoodleVersion(sd []Test) string {
-	var verMin string
-	var verMax string
+	verZero, _ := version.NewVersion("0.0")
+	verMin, _ := version.NewVersion("0.0")
+	verMax, _ := version.NewVersion("0.0")
 
 	for _, s := range sd {
 		var versionSlice []string
-
-		for _, k := range moodleVersion[s.Url] {
+		for _, k := range Versions.Moodle[s.Url] {
 			if s.Score.Hash == k.Md5 {
 				versionSlice = append(versionSlice, k.Id)
 			}
 		}
 
-		if len(versionSlice) > 0 {
-			verMin = versionSlice[0]
-			verMax = versionSlice[len(versionSlice)-1]
+		versions := make([]*version.Version, len(versionSlice))
+		for i, raw := range versionSlice {
+			v, _ := version.NewVersion(raw)
+			versions[i] = v
+		}
+
+		sort.Sort(version.Collection(versions))
+
+		if len(versions) > 0 {
+			if versions[0].GreaterThan(verMin) {
+				verMin = versions[0]
+			}
+
+			if versions[len(versions)-1].GreaterThan(verMax) {
+				verMax = versions[len(versions)-1]
+			}
 		}
 	}
 
-	if verMin != "" && verMax != "" {
-		return fmt.Sprintf("%v - %v", verMin, verMax)
+	if verMin.GreaterThan(verZero) && verMax.GreaterThan(verZero) {
+		return fmt.Sprintf("%s - %s", verMin, verMax)
 	} else {
 		return "Unknown"
 	}
@@ -233,43 +249,39 @@ func getJoomlaVersion(sd []Test) string {
 }
 
 func getDrupalVersion(sd []Test) string {
-	var verMin float64
-	var verMax float64
+	verZero, _ := version.NewVersion("0.0")
+	verMin, _ := version.NewVersion("0.0")
+	verMax, _ := version.NewVersion("0.0")
 
 	for _, s := range sd {
-		versionSlice := []float64{}
-
-		for _, k := range drupalVersion[s.Url] {
+		var versionSlice []string
+		for _, k := range Versions.Drupal[s.Url] {
 			if s.Score.Hash == k.Md5 {
-				v, _ := strconv.ParseFloat(k.Id, 64)
-				versionSlice = append(versionSlice, v)
+				versionSlice = append(versionSlice, k.Id)
 			}
 		}
 
-		if len(versionSlice) > 0 {
-			min := versionSlice[0]
-			max := versionSlice[0]
-			for _, v := range versionSlice {
-				if v < min {
-					min = v
-				}
-				if v > max {
-					max = v
-				}
+		versions := make([]*version.Version, len(versionSlice))
+		for i, raw := range versionSlice {
+			v, _ := version.NewVersion(raw)
+			versions[i] = v
+		}
+
+		sort.Sort(version.Collection(versions))
+
+		if len(versions) > 0 {
+			if versions[0].GreaterThan(verMin) {
+				verMin = versions[0]
 			}
 
-			if min > verMin {
-				verMin = min
-			}
-
-			if max > verMax {
-				verMax = max
+			if versions[len(versions)-1].GreaterThan(verMax) {
+				verMax = versions[len(versions)-1]
 			}
 		}
 	}
 
-	if verMin != 0 && verMax != 0 {
-		return fmt.Sprintf("%v - %v", verMin, verMax)
+	if verMin.GreaterThan(verZero) && verMax.GreaterThan(verZero) {
+		return fmt.Sprintf("%s - %s", verMin, verMax)
 	} else {
 		return "Unknown"
 	}

@@ -1,6 +1,6 @@
-package main
+package Versions
 
-var moodleVersion = map[string][]Version{
+var Moodle = map[string][]Version{
 	"/admin/environment.xml": []Version{
 		Version{Md5: "", Id: "v1.0.0 "},
 		Version{Md5: "", Id: "v1.0.1 "},
