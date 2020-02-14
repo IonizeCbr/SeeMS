@@ -144,5 +144,19 @@ func GenerateTests() []Test {
 			Action: "substring",
 			Match:  "MOODLE INSTALLATION",
 		},
+		{
+			Id:     20,
+			Cms:    "moodle",
+			Url:    "/README.txt",
+			Action: "hash",
+			Match:  "",
+		},
+		{
+			Id:     21,
+			Cms:    "moodle",
+			Url:    "/admin/environment.xml",
+			Action: "hash",
+			Match:  "",
+		},
 	}
 }

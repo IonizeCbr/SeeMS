@@ -2,8 +2,6 @@ package main
 
 import (
 	"net/http"
-
-	"github.com/google/uuid"
 )
 
 type Settings struct {
@@ -15,7 +13,6 @@ type Settings struct {
 }
 
 type Target struct {
-	TargetId uuid.UUID
 	Hostname string
 	Tests    []Test
 }

@@ -7,10 +7,6 @@ import (
 )
 
 func webWorker(target string, webComms chan WebResponse, testId int) {
-	// This function should make a web request on behalf of a target / test id.
-	// It will either return the body result of that request, or the error associated with
-	// attempting to retrieve it.
-
 	w := WebResponse{
 		testId,
 		nil,

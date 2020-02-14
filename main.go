@@ -4,14 +4,11 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"strconv"
 	"strings"
 	"sync"
-
-	"github.com/google/uuid"
 )
 
 func main() {
@@ -20,12 +17,7 @@ func main() {
 	flag.StringVar(&s.target, "target", "", "URL of an individual target you wish to scan.")
 	flag.StringVar(&s.file, "filename", "", "File name of a list of targets. One per line.")
 	flag.IntVar(&s.threads, "threads", 10, "Number of threads to use.")
-	flag.BoolVar(&s.quiet, "quiet", false, "Option to suppress status messages.")
 	flag.Parse()
-
-	if s.quiet {
-		log.SetOutput(ioutil.Discard)
-	}
 
 	if s.target == "" && s.file == "" {
 		fmt.Printf("Either -target or -filename is required. See -h")
@@ -55,42 +47,27 @@ func SeeMS(set Settings) {
 	var targetQueue = make(chan Target)
 	var targetSync sync.WaitGroup
 
-	// We want to set test runners ready to pull from the channel ahead of pushing results into the channel
 	for i := 0; i < set.threads; i++ {
 		go testWorker(targetQueue, &targetSync)
 	}
 
-	// Push targets into the target queue. Channel is pulled off by test runners.
 	for _, t := range set.targetList {
 		targetSync.Add(1)
-		targetQueue <- addTarget(t)
+		targetQueue <- Target{
+			t,
+			GenerateTests(),
+		}
 	}
 
-	// We can close the queue now as all targets have been placed onto it.
 	close(targetQueue)
-
 	targetSync.Wait()
 }
 
-func addTarget(t string) Target {
-	// this function will set up a unique UUID for each target.
-	// each target has a series of tests associated with it.
-	return Target{
-		uuid.New(),
-		t,
-		GenerateTests(),
-	}
-}
-
 func testWorker(targetQueue chan Target, targetSync *sync.WaitGroup) {
-	// There are n testWorker functions, where n = set.threads.
-	// this function will pull of a target and action it. the channel will close once all targets
-	// have been read. Number of test runners is determined by set.threads.
 	for target := range targetQueue {
 		var webComms = make(chan WebResponse, len(target.Tests))
 
 		for _, test := range target.Tests {
-			// We can do all web requests independently and use a channel to read back when they are complete.
 			go webWorker(fmt.Sprintf("%s%s", target.Hostname, test.Url), webComms, test.Id)
 		}
 
@@ -106,7 +83,6 @@ func testWorker(targetQueue chan Target, targetSync *sync.WaitGroup) {
 }
 
 func scoreMarkup(target Target, targetSync *sync.WaitGroup) {
-	// we now have a target with fully populated tests / associated errors.
 	var scoreComms = make(chan Score, len(target.Tests))
 
 	for _, test := range target.Tests {
@@ -137,7 +113,6 @@ func scoreEvaluation(target Target, targetSync *sync.WaitGroup) {
 	maxScore := 0
 	result := ""
 
-	// At this point we have a full target with scores and results on appropriate tests
 	for i := range target.Tests {
 		resMap[target.Tests[i].Cms] += target.Tests[i].Score.Value
 	}
@@ -168,8 +143,9 @@ func scoreEvaluation(target Target, targetSync *sync.WaitGroup) {
 			fmt.Printf("%s (%s) @ %s\n", strings.Title(result), ver, target.Hostname)
 			targetSync.Done()
 		case "moodle":
-			ver := "Unknown"
+			ver := getMoodleVersion(target.Tests)
 			fmt.Printf("%s (%s) @ %s\n", strings.Title(result), ver, target.Hostname)
+			targetSync.Done()
 		}
 	} else {
 		fmt.Printf("No recognised CMS @ %s\n", target.Hostname)
@@ -188,6 +164,32 @@ func getSharepointVersion(sd []Test) string {
 
 	if spVersion != "" {
 		return spVersion
+	} else {
+		return "Unknown"
+	}
+}
+
+func getMoodleVersion(sd []Test) string {
+	var verMin string
+	var verMax string
+
+	for _, s := range sd {
+		var versionSlice []string
+
+		for _, k := range moodleVersion[s.Url] {
+			if s.Score.Hash == k.Md5 {
+				versionSlice = append(versionSlice, k.Id)
+			}
+		}
+
+		if len(versionSlice) > 0 {
+			verMin = versionSlice[0]
+			verMax = versionSlice[len(versionSlice)-1]
+		}
+	}
+
+	if verMin != "" && verMax != "" {
+		return fmt.Sprintf("%v - %v", verMin, verMax)
 	} else {
 		return "Unknown"
 	}
